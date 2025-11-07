@@ -12,13 +12,14 @@ async function main() {
     // Send model details and system message
     body: JSON.stringify({
       model: 'gpt-4o',
-      messages: [{ role: 'user', content: '' }]
+      messages: [{ role: 'user', content: 'Tell me about the benefits of using AI in healthcare.' }]
     })
   });
   // Parse and store the response data
   const result = await response.json();
-  // Log result to the console
-  console.log(result);
+  // Log only the AI's text response to the console
+  console.log(result.choices[0].message.content);
 };
 
 // Call the main function
+main();
